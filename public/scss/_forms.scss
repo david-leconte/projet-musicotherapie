@@ -1,4 +1,4 @@
-/*=================== contact banner start ====================*/
+/*=================== banner start ====================*/
 
 .dropdown .dropdown-menu {
   -webkit-transition: all 0.3s;
@@ -38,17 +38,17 @@
     }
   }
 }
-/*=================== contact banner end ====================*/
+/*=================== banner end ====================*/
 
 
-/*=================== contact form start ====================*/
+/*=================== form start ====================*/
 .contact-title{
   font-size: 27px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-.form-contact{
+.form{
 
   label{
     font-size: 14px;
@@ -87,7 +87,7 @@
   // }
 }
 
-/*=================== contact form end ====================*/
+/*=================== form end ====================*/
 
 /* Contact Success and error Area css
 ============================================================================================ */
@@ -130,7 +130,7 @@
         }
     }
 }
-.contact-section{
+.form-section{
   padding: 130px 0 100px;
   @media #{$tab}{
     padding: 70px 0 40px;
