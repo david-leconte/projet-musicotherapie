@@ -4943,6 +4943,9 @@ hr {
   border-radius: 0px;
   height: 100% !important;
 }
+.form .genric-btn.link {
+  font-size: 1.8em;
+}
 
 /*=================== form end ====================*/
 /* Contact Success and error Area css
