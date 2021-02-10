@@ -1,37 +1,48 @@
+{% set page_title = "S'inscrire" %}
 {% extends 'base.html.twig' %}
-
-{% block title %}Register{% endblock %}
 
 {% block body %}
 <section class="form-section">
     <div class="container">
         <div class="row">
-            {% for flashError in app.flashes('verify_email_error') %}
-                <div class="col-12 alert alert-danger" role="alert">{{ flashError }}</div>
-            {% endfor %}
 
             <h1 class="col-12 text-heading">S'inscrire</h1>
 
-            <form name="registration_form" method="post" class="col-12 form">
+            {{ form_start(form, {'attr': { 'class': 'col-12 form' }}) }}
+                {% if not form.vars.valid %}
+                    <ul>
+                        {# Loop through every form item #}
+                        {% for child in form.children %}
+                            {# Display the errors of the form item #}
+                            {%for error in child.vars.errors%}
+                                <li>{{error.message}}</li>
+                            {%endfor%}
+                        {%endfor%}
+                    </ul>
+                {%endif%}
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Votre adresse e-mail" 
-                    id="registration_form_email" name="registration_form[email]" required="required" maxlength="180">
+                    {{ form_widget(form.firstName, {'attr': { 'placeholder': 'Votre prénom', 'required': 'true', 'class': 'form-control' }}) }}
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" placeholder="Votre mot de passe"
-                    id="registration_form_plainPassword" name="registration_form[plainPassword]" required="required">
+                    {{ form_widget(form.lastName, {'attr': { 'placeholder': 'Votre nom de famille', 'required': 'true', 'class': 'form-control' }}) }}
                 </div>
-                <div class="form-group mb-3">
-                    <label>
-                        <input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1">
-                        Agréer aux termes d'utilisation
-                    </label>
+                <div class="form-group">
+                    {{ form_widget(form.email, {'attr': { 'placeholder': 'Votre adresse e-mail', 'required': 'true', 'class': 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(form.plainPassword.first, {'attr': { 'placeholder': 'Votre mot de passe', 'required': 'true', 'class': 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(form.plainPassword.second, {'attr': { 'placeholder': 'Confirmez mot de passe', 'required': 'true', 'class': 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(form.agreeTerms, {'attr': { 'required': 'true' }}) }} {{ form_label(form.agreeTerms) }}
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary col-12">S'inscrire</button>
                 <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="ESoGo5qeRwVNNXEEEWRmYTs9ueIq8sBBQYoYMtSG0MM">
 
                 <a class="genric-btn link col-12" href="{{ path('app_login')}}" >Se connecter</a>
-            </form>
+            {{ form_end(form) }}
         </div>
     </div>
 </section>
