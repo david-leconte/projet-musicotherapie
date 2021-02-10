@@ -5,9 +5,10 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}Projet Musicothérapie{% endblock %}</title>
+        <title>{% block title %}Projet Musicothérapie{% endblock %}</title>
 
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"/>
+        {% block stylesheets %}
+
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
@@ -22,20 +23,11 @@
         <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
         <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+        {% endblock %}
+
     </head>
     <body>
-        <!-- ? Preloader Start -->
-        <div id="preloader-active">
-            <div class="preloader d-flex align-items-center justify-content-center">
-                <div class="preloader-inner position-relative">
-                    <div class="preloader-circle"></div>
-                    <div class="preloader-img pere-text">
-                        <img src="{{ asset('img/logo/loder.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Preloader Start -->
         <header>
             <!--? Header Start -->
             <div class="header-area">
@@ -45,7 +37,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{ asset('img/logo/logo.png') }}" alt=""></a>
+                                    <a href="index.html"><img src="{{ asset('img/logo/logo.png') }}" alt="logo" height="70px"></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -78,6 +70,9 @@
         </header>
         {% block body %}{% endblock %}
 
+
+        {% block javascripts %}{% endblock %}
+
         <footer>
             <div class="footer-wrappr section-bg3" data-background="{{ asset('img/gallery/footer-bg.png') }}">
                 <div class="footer-area footer-padding ">
@@ -89,7 +84,7 @@
                                     <div class="footer-logo mb-25">
                                         <a href="index.html"><img src="{{ asset('img/logo/logo2_footer.png') }}" alt=""></a>
                                     </div>
-                                    <d iv class="header-area">
+                                    <div class="header-area">
                                         <div class="main-header main-header2">
                                             <div class="menu-main d-flex align-items-center justify-content-start">
                                                 <!-- Main-menu -->
@@ -106,7 +101,7 @@
                                                 </div>
                                             </div>  
                                         </div>
-                                    </d>
+                                    </div>
                                     <!-- social -->
                                     <div class="footer-social mt-50">
                                         <a href="#"><i class="fab fa-twitter"></i></a>
