@@ -4939,6 +4939,9 @@ hr {
   font-weight: 300;
   color: #999999;
 }
+.form .alert {
+  font-size: 1.6em;
+}
 .form textarea {
   border-radius: 0px;
   height: 100% !important;
