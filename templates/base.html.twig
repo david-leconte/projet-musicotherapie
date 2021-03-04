@@ -1,3 +1,6 @@
+{% set fbLink = "https://www.facebook.com/Beya.musicotherapeute" %}
+{% set messageFooter = "" %}
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
     <head>
@@ -47,14 +50,15 @@
                                         <nav> 
                                             <ul id="navigation">
                                                 <li><a href="{{ path('home')}}">Accueil</a></li>
-                                                <li><a href="{{ path('about')}}">À propos</a></li>
                                                 <li><a href="{{ path('services')}}">Services</a></li>
                                                 <li><a href="{{ path('contact')}}">Contact</a></li>
+                                                <li><a href="{{ path('about')}}">À propos</a></li>
+                                                <li><a href="{{ fbLink }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i></a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                     <div class="header-right-btn f-right d-none d-lg-block ml-15">
-                                        <a href="{{ path('app_login')}}" class="btn header-btn">Prendre RDV</a>
+                                        <a href="{{ path('app_login')}}" class="btn header-btn">Inscrivez vous & essayez !</a>
                                     </div>
                                 </div>
                             </div>   
@@ -91,11 +95,10 @@
                                                 <div class="main-menu main-menu2">
                                                     <nav> 
                                                         <ul>
-                                                            <li><a href="index.html">Home</a></li>
-                                                            <li><a href="about.html">About</a></li>
-                                                            <li><a href="services.html">Services</a></li>
-                                                            <li><a href="blog.html">Blog</a></li>
-                                                            <li><a href="contact.html">Contact</a></li>
+                                                            <li><a href="{{ path('home') }}">Accueil</a></li>
+                                                            <li><a href="{{ path('services') }}">Services</a></li>
+                                                            <li><a href="{{ path('about') }}">À propos</a></li>
+                                                            <li><a href="{{ path('contact') }}">Contact</a></li>
                                                         </ul>
                                                     </nav>
                                                 </div>
@@ -104,25 +107,23 @@
                                     </div>
                                     <!-- social -->
                                     <div class="footer-social mt-50">
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="{{ fbLink }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                 <div class="single-footer-caption">
                                     <div class="footer-tittle mb-50">
-                                        <h4>Subscribe newsletter</h4>
+                                        <h4>S'inscrire à la newsletter !</h4>
                                     </div>
                                     <!-- Form -->
                                     <div class="footer-form">
                                         <div id="mc_embed_signup">
                                             <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                                <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'">
+                                                <input type="email" name="EMAIL" id="newsletter-form-email" placeholder="Votre adresse e-mail" class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'">
                                                 <div class="form-icon">
                                                     <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
-                                                        Subscribe
+                                                        S'inscrire !
                                                     </button>
                                                 </div>
                                                 <div class="mt-10 info"></div>
@@ -131,7 +132,7 @@
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">
-                                            <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium misem ut ipsum.</p>
+                                            <p>{{ messageFooter }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +148,7 @@
                                 <div class="col-xl-10 ">
                                     <div class="footer-copy-right">
                                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tous droits réservés | Site réalisé au sein de l'Université Paris I Panthéon-Sorbonne (DUTERTRE, LECONTE, LOSEGO, SHI)
                                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                                         </div>
                                     </div>

@@ -23,8 +23,9 @@
         }
         .cat-icon{
             margin-bottom: 31px;
-            svg{
-
+            img {
+                height: 110px;
+                width: 110px;
             }
         }
         .cat-cap{
@@ -103,5 +104,13 @@
                 }
             }
        }
+    }
+
+    .section-top-border * {
+        font-size: 1.8rem;
+    }
+
+    .progress-table-wrap {
+        overflow-x: hidden;
     }
 }

@@ -1,5 +1,5 @@
-{% set page_title = "Services" %}
 {% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} | Services{% endblock %}
 
 {% block body %}
 <main>
@@ -13,8 +13,8 @@
                         <div class="col-xl-7 col-lg-8 col-md-10 ">
                             <div class="hero-wrapper">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".3s">Services</h1>
-                                <p data-animation="fadeInUp" data-delay=".6s">Almost before we knew it, we<br> had left the ground</p>
+                                <h1 data-animation="fadeInUp" data-delay=".3s">Services proposés</h1>
+                                <p data-animation="fadeInUp" data-delay=".6s">Profitez de la musicothérapie en rendez-vous individuel personnalisé ou consultez nos ateliers pour donner un coup de pouce à votre dynamique de groupe !</p>
                             </div>
                         </div>
                     </div>
@@ -30,12 +30,9 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-xl-7 col-lg-9 col-md-8">
                     <div class="wantToWork-caption wantToWork-caption2">
-                        <h2>Happy mind <br>healthy life</h2>
-                        <p>Almost before we knew it, we<br> had left the ground</p>
+                        <h2>Nos 2 services principaux</h2>
+                        <p>Initiez vous à la musicothérapie d'une manière adaptée à vos besoins !</p>
                     </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4">
-                    <a href="#" class="btn f-right sm-left">Take a Service</a>
                 </div>
             </div>
         </div>
@@ -45,39 +42,81 @@
 <div class="service-area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="single-cat text-center mb-50">
                     <div class="cat-icon">
-                        <img src="{{ asset('img/icon/services1.svg') }}" alt="">
+                        <img src="{{ asset('img/icon/inspiration.svg') }}" alt="">
                     </div>
                     <div class="cat-cap">
-                        <h5><a href="services.html">Physical Activity</a></h5>
-                        <p>Praesent porttitor, nulla vitae  posuere iaculis, arcu nisl dignissim dolor, a pretium mi  sem ut ipsum.</p>
-                        <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        <h5><a href="#personal-appointments">Rendez-vous individuel</a></h5>
+                        <p>Profitez d'une séance de musicothérapie personnalisée et voyez comment la musique peut vous aider à être en meilleure santé</p>
+                        <a href="#personal-appointments" class="plus-btn"><i class="ti-plus"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="single-cat text-center mb-50">
                     <div class="cat-icon">
-                        <img src="{{ asset('img/icon/services2.svg') }}" alt="">
+                        <img src="{{ asset('img/icon/add-group.svg') }}" alt="">
                     </div>
                     <div class="cat-cap">
-                        <h5><a href="services.html">Physical Activity</a></h5>
-                        <p>Praesent porttitor, nulla vitae  posuere iaculis, arcu nisl dignissim dolor, a pretium mi  sem ut ipsum.</p>
-                        <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        <h5><a href="#group-sessions">Ateliers groupés</a></h5>
+                        <p>Redynamisez votre groupe avec des ateliers interactifs avec notamment des instruments de musique</p>
+                        <a href="#group-sessions" class="plus-btn"><i class="ti-plus"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-cat text-center mb-50">
-                    <div class="cat-icon">
-                        <img src="{{ asset('img/icon/services3.svg') }}" alt="">
+        </div>
+        <div class="section-top-border" id="personal-appointments">
+            <h3 class="mb-30">RDV individuels : horaires disponibles</h3>
+            <div class="progress-table-wrap">
+                <div class="progress-table">
+                    <div class="table-head">
+                        <div class="date">Date</div>
+                        <div class="hour">Heure</div>
+                        <div class="select"></div>
                     </div>
-                    <div class="cat-cap">
-                        <h5><a href="services.html">Physical Activity</a></h5>
-                        <p>Praesent porttitor, nulla vitae  posuere iaculis, arcu nisl dignissim dolor, a pretium mi  sem ut ipsum.</p>
-                        <a href="services.html" class="plus-btn"><i class="ti-plus"></i></a>
+                    <div class="table-row">
+                        <div class="date">26 mai 2021</div>
+                        <div class="hour">18:00</div>
+                        <div class="select"><a href="#" class="genric-btn primary">Sélectionner</a></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="date">31 mai 2021</div>
+                        <div class="hour">11:30</div>
+                        <div class="select"><a href="#" class="genric-btn primary">Sélectionner</a></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="date">05 juin 2021</div>
+                        <div class="hour">15:00</div>
+                        <div class="select"><a href="#" class="genric-btn primary">Sélectionner</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-top-border" id="group-sessions" >
+            <h3 class="mb-30">Ateliers groupés : horaires disponibles</h3>
+            <div class="progress-table-wrap">
+                <div class="progress-table">
+                    <div class="table-head">
+                        <div class="date">Date</div>
+                        <div class="hour">Heure</div>
+                        <div class="select"></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="date">26 mai 2021</div>
+                        <div class="hour">18:00</div>
+                        <div class="select"><a href="#" class="genric-btn primary">Sélectionner</a></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="date">31 mai 2021</div>
+                        <div class="hour">11:30</div>
+                        <div class="select"><a href="#" class="genric-btn primary">Sélectionner</a></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="date">05 juin 2021</div>
+                        <div class="hour">15:00</div>
+                        <div class="select"><a href="#" class="genric-btn primary">Sélectionner</a></div>
                     </div>
                 </div>
             </div>
@@ -146,35 +185,6 @@
     </div>
 </section>
 <!--? Testimonial Area End -->
-
-<!--? About Law Start-->
-<section class="about-low-area mt-80">
-    <div class="container">
-        <div class="about-cap-wrapper">
-            <div class="row">
-                <div class="col-xl-5  col-lg-6 col-md-10 offset-xl-1">
-                    <div class="about-caption mb-50">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle mb-35">
-                            <h2>100% satisfaction guaranteed.</h2>
-                        </div>
-                        <p>Almost before we knew it, we had left the ground</p>
-                        <a href="about.html" class="border-btn">Make an Appointment</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <!-- about-img -->
-                    <div class="about-img">
-                        <div class="about-font-img">
-                            <img src="{{ asset('img/gallery/about2.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- About Law End-->
 </main>
 
 {% endblock %}

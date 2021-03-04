@@ -1,5 +1,6 @@
-{% set page_title = "À propos" %}
 {% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | À propos{% endblock %}
 
 {% block body %}
 <main>
@@ -13,7 +14,7 @@
                         <div class="col-xl-7 col-lg-8 col-md-10 ">
                             <div class="hero-wrapper">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".3s">About</h1>
+                                <h1 data-animation="fadeInUp" data-delay=".3s">À propos</h1>
                                 <p data-animation="fadeInUp" data-delay=".6s">Almost before we knew it, we<br> had left the ground</p>
                             </div>
                         </div>

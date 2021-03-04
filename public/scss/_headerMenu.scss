@@ -60,6 +60,11 @@
                         @media #{$lg}{
                             padding: 29px 15px;
                         }
+
+                        .fab {
+                            font-size: 35px;
+                            vertical-align: middle;
+                        }
                     }
                     &:hover{
                         & > a{
@@ -93,7 +98,7 @@
                                 background: none;
                             }
                         }
-                    } 
+                    }
                 }
             }
         }

@@ -2546,6 +2546,10 @@ hr {
     padding: 29px 15px;
   }
 }
+.header-area .main-header .main-menu ul li a .fab {
+  font-size: 35px;
+  vertical-align: middle;
+}
 .header-area .main-header .main-menu ul li:hover > a {
   color: #5AAC4E;
   text-decoration: underline;
@@ -2694,7 +2698,7 @@ hr {
 
 .slider-area {
   position: relative;
-  background-image: url(../img/hero/acceuil.png);
+  background-image: url(../img/hero/h1_hero.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -3434,6 +3438,10 @@ hr {
 .service-area .single-cat .cat-icon {
   margin-bottom: 31px;
 }
+.service-area .single-cat .cat-icon img {
+  height: 110px;
+  width: 110px;
+}
 .service-area .single-cat .cat-cap h5 > a {
   font-size: 20px;
   font-weight: 500;
@@ -3509,6 +3517,12 @@ hr {
   border: 2px solid transparent;
   background: #fff;
   color: #000;
+}
+.service-area .section-top-border * {
+  font-size: 1.8rem;
+}
+.service-area .progress-table-wrap {
+  overflow-x: hidden;
 }
 
 .wantToWork-area {
@@ -5512,79 +5526,40 @@ del {
   padding: 15px 0px 30px 0px;
   min-width: 800px;
 }
-.progress-table .serial {
-  width: 11.83%;
+.progress-table .date {
+  width: 33.3%;
   padding-left: 30px;
 }
-.progress-table .country {
-  width: 28.07%;
+.progress-table .hour {
+  width: 33.3%;
 }
-.progress-table .visit {
-  width: 19.74%;
-}
-.progress-table .percentage {
-  width: 40.36%;
-  padding-right: 50px;
+.progress-table .select {
+  width: 33.3%;
 }
 .progress-table .table-head {
   display: flex;
 }
-.progress-table .table-head .serial,
-.progress-table .table-head .country,
-.progress-table .table-head .visit,
-.progress-table .table-head .percentage {
+.progress-table .table-head .date,
+.progress-table .table-head .hour,
+.progress-table .table-head .select {
   color: #415094;
   line-height: 40px;
   text-transform: uppercase;
   font-weight: 500;
+  display: flex;
+  justify-content: center;
 }
 .progress-table .table-row {
   padding: 15px 0;
   border-top: 1px solid #edf3fd;
   display: flex;
 }
-.progress-table .table-row .serial,
-.progress-table .table-row .country,
-.progress-table .table-row .visit,
-.progress-table .table-row .percentage {
+.progress-table .table-row .date,
+.progress-table .table-row .hour,
+.progress-table .table-row .select {
   display: flex;
   align-items: center;
-}
-.progress-table .table-row .country img {
-  margin-right: 15px;
-}
-.progress-table .table-row .percentage .progress {
-  width: 80%;
-  border-radius: 0px;
-  background: transparent;
-}
-.progress-table .table-row .percentage .progress .progress-bar {
-  height: 5px;
-  line-height: 5px;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-1 {
-  background-color: #6382e6;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-2 {
-  background-color: #e66686;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-3 {
-  background-color: #f09359;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-4 {
-  background-color: #73fbaf;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-5 {
-  background-color: #73fbaf;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-6 {
-  background-color: #6382e6;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-7 {
-  background-color: #a367e7;
-}
-.progress-table .table-row .percentage .progress .progress-bar.color-8 {
-  background-color: #e66686;
+  justify-content: center;
 }
 
 .single-gallery-image {
