@@ -17,4 +17,14 @@ class ServicesController extends AbstractController
             'controller_name' => 'ServicesController',
         ]);
     }
+
+    /**
+     * @Route("/confirm", name="confirmBooking")
+     */
+    public function confirm(): Response
+    {
+        return $this->render('services/confirm.html.twig', [
+            'controller_name' => 'ServicesController',
+        ]);
+    }
 }
