@@ -67,6 +67,14 @@
             }
         }
     }
+
+    .temporary-logo {
+        font-family: 'Dancing Script', cursive;
+        color: $logo-color;
+        font-size: 4rem;
+        user-select: none;
+    }
+
     .info.error {
         color:  $theme-color;
     }

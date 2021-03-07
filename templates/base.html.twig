@@ -8,11 +8,13 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{% block title %}Projet Musicothérapie{% endblock %}</title>
+        <title>{% block title %}Beya Musicothérapie{% endblock %}</title>
 
         {% block stylesheets %}
 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
@@ -40,7 +42,10 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                    <a href="{{ path('home') }}"><img src="{{ asset('img/logo/logo.png') }}" alt="logo" height="70px"></a>
+                                    <a href="{{ path('home') }}">
+                                        <!--<img src="{{ asset('img/logo/logo.png') }}" alt="logo" height="70px">-->
+                                        <span class="temporary-logo">Beya Musicothérapie</span>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -92,7 +97,10 @@
                                 <div class="single-footer-caption mb-50">
                                     <!-- logo -->
                                     <div class="footer-logo mb-25">
-                                        <a href="index.html"><img src="{{ asset('img/logo/logo2_footer.png') }}" alt=""></a>
+                                        <a href="index.html">
+                                            <!--<img src="{{ asset('img/logo/logo2_footer.png') }}" alt="">-->
+                                            <span class="temporary-logo">Beya Musicothérapie</span>
+                                        </a>
                                     </div>
                                     <div class="header-area">
                                         <div class="main-header main-header2">

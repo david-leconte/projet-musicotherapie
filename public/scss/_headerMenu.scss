@@ -150,6 +150,13 @@
                 } 
             }
         }
+
+        .temporary-logo {
+            font-family: 'Dancing Script', cursive;
+            color: $logo-color;
+            font-size: 2.85rem;
+            user-select: none;
+        }
     }
 
 //! Mobile Menu

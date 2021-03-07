@@ -2620,6 +2620,12 @@ hr {
     padding: 15px 0px;
   }
 }
+.header-sticky .temporary-logo {
+  font-family: "Dancing Script", cursive;
+  color: #234821;
+  font-size: 2.85rem;
+  user-select: none;
+}
 
 .mobile_menu {
   position: absolute;
@@ -3730,6 +3736,12 @@ hr {
   margin-top: 15px;
   font-size: 16px;
   margin-bottom: 25px;
+}
+.footer-area .temporary-logo {
+  font-family: "Dancing Script", cursive;
+  color: #234821;
+  font-size: 4rem;
+  user-select: none;
 }
 .footer-area .info.error {
   color: #5AAC4E;
@@ -4959,6 +4971,7 @@ hr {
 .form textarea {
   border-radius: 0px;
   height: 100% !important;
+  padding-top: 1em;
 }
 .form .other-text {
   font-size: 1.8em;
