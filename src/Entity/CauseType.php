@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CauseRepository;
+use App\Repository\CauseTypeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CauseRepository::class)
+ * @ORM\Entity(repositoryClass=CauseTypeRepository::class)
  */
-class Cause
+class CauseType
 {
     /**
      * @ORM\Id
@@ -35,7 +35,7 @@ class Cause
     private $price;
 
     /**
-     * @ORM\OneToMany(targetEntity=Appointment::class, mappedBy="cause")
+     * @ORM\OneToMany(targetEntity=Appointment::class, mappedBy="causeType")
      */
     private $appointments;
 
@@ -97,7 +97,7 @@ class Cause
     {
         if (!$this->appointments->contains($appointment)) {
             $this->appointments[] = $appointment;
-            $appointment->setCause($this);
+            $appointment->setCauseType($this);
         }
 
         return $this;
@@ -107,8 +107,8 @@ class Cause
     {
         if ($this->appointments->removeElement($appointment)) {
             // set the owning side to null (unless already changed)
-            if ($appointment->getCause() === $this) {
-                $appointment->setCause(null);
+            if ($appointment->getCauseType() === $this) {
+                $appointment->setCauseType(null);
             }
         }
 

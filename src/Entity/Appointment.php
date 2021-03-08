@@ -29,10 +29,10 @@ class Appointment
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Cause::class, inversedBy="appointments")
+     * @ORM\ManyToOne(targetEntity=CauseType::class, inversedBy="appointments")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $cause;
+    private $causeType;
 
     /**
      * @ORM\ManyToOne(targetEntity=State::class, inversedBy="appointments")
@@ -75,14 +75,14 @@ class Appointment
         return $this;
     }
 
-    public function getCause(): ?Cause
+    public function getCauseType(): ?CauseType
     {
-        return $this->cause;
+        return $this->causeType;
     }
 
-    public function setCause(?Cause $cause): self
+    public function setCauseType(?CauseType $causeType): self
     {
-        $this->cause = $cause;
+        $this->causeType = $causeType;
 
         return $this;
     }

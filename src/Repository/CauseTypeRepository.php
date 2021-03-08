@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Cause;
+use App\Entity\CauseType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Cause|null find($id, $lockMode = null, $lockVersion = null)
- * @method Cause|null findOneBy(array $criteria, array $orderBy = null)
- * @method Cause[]    findAll()
- * @method Cause[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method CauseType|null find($id, $lockMode = null, $lockVersion = null)
+ * @method CauseType|null findOneBy(array $criteria, array $orderBy = null)
+ * @method CauseType[]    findAll()
+ * @method CauseType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CauseRepository extends ServiceEntityRepository
+class CauseTypeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Cause::class);
+        parent::__construct($registry, CauseType::class);
     }
 
     // /**
-    //  * @return Cause[] Returns an array of Cause objects
+    //  * @return CauseType[] Returns an array of CauseType objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class CauseRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Cause
+    public function findOneBySomeField($value): ?CauseType
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
