@@ -15,7 +15,10 @@
                          <div class="hero-wrapper">
                             <div class="hero__caption">
                                 <h1 data-animation="fadeInUp" data-delay=".3s">Contact</h1>
-                                <p data-animation="fadeInUp" data-delay=".6s">Je suis toujours à votre disposition !</p>
+                                <p data-animation="fadeInUp" data-delay=".6s">
+                                    {% for message in app.flashes('success') %}<i>{{ message }}</i><br>{% endfor %}
+                                    Je suis toujours à votre disposition !
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -73,33 +76,33 @@
                 <h2 class="contact-title">Me contacter pour en savoir +</h2>
             </div>
             <div class="col-lg-8">
-                <form class="form contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                {{ form_start(form, { 'attr': {'class': 'form contact_form'}}) }}
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                {{ form_widget(form.fullName, { 'attr': { 'class': 'form-control valid', 'placeholder': 'Entrez votre nom complet' }}) }}
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                {{ form_widget(form.email, { 'attr': { 'class': 'form-control valid', 'placeholder': 'Entrez votre adresse email' }}) }}
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                {{ form_widget(form.subject, { 'attr': { 'class': 'form-control valid', 'placeholder': 'Entrez le sujet de votre email' }}) }}
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                {{ form_widget(form.message, { 'attr': { 'class': 'form-control w-100','placeholder': 'Entrez votre message' }}) }}
                             </div>
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                        <button type="submit" class="button button-contactForm boxed-btn">Envoyer !</button>
                     </div>
-                </form>
+                {{ form_end(form) }}
             </div>
             <div class="col-lg-3 offset-lg-1">
                 <div class="media contact-info">
