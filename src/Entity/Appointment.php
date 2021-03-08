@@ -35,6 +35,11 @@ class Appointment
     private $causeType;
 
     /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $completeCause;
+
+    /**
      * @ORM\ManyToOne(targetEntity=State::class, inversedBy="appointments")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -83,6 +88,18 @@ class Appointment
     public function setCauseType(?CauseType $causeType): self
     {
         $this->causeType = $causeType;
+
+        return $this;
+    }
+
+    public function getCompleteCause(): ?string
+    {
+        return $this->completeCause;
+    }
+
+    public function setCompleteCause(string $completeCause): self
+    {
+        $this->completeCause = $completeCause;
 
         return $this;
     }
