@@ -326,18 +326,10 @@ del {
     background: #f9f9ff;
     padding: 15px 0px 30px 0px;
     min-width: 800px;
-    .date {
-        width: 33.3%;
-        padding-left: 30px;
-    }
-    .hour {
-        width: 33.3%;
-    }
-    .select {
-        width: 33.3%;
-    }
     .table-head {
         display: flex;
+
+        .title,
         .date,
         .hour,
         .select {
@@ -353,6 +345,8 @@ del {
         padding: 15px 0;
         border-top: 1px solid #edf3fd;
         display: flex;
+        
+        .title,
         .date,
         .hour,
         .select {
@@ -360,6 +354,36 @@ del {
             align-items: center;
             justify-content: center;
         }
+    }
+}
+
+#personal-appointments {
+    .date {
+        width: 33.3%;
+        padding-left: 30px;
+    }
+    .hour {
+        width: 33.3%;
+    }
+    .select {
+        width: 33.3%;
+    }
+}
+
+#group-sessions {
+    .title {
+        width: 32%;
+        padding-left: 30px;
+    }
+
+    .date {
+        width: 17%;
+    }
+    .hour {
+        width: 17%;
+    }
+    .select {
+        width: 17%;
     }
 }
 

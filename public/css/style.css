@@ -5539,19 +5539,10 @@ del {
   padding: 15px 0px 30px 0px;
   min-width: 800px;
 }
-.progress-table .date {
-  width: 33.3%;
-  padding-left: 30px;
-}
-.progress-table .hour {
-  width: 33.3%;
-}
-.progress-table .select {
-  width: 33.3%;
-}
 .progress-table .table-head {
   display: flex;
 }
+.progress-table .table-head .title,
 .progress-table .table-head .date,
 .progress-table .table-head .hour,
 .progress-table .table-head .select {
@@ -5567,12 +5558,38 @@ del {
   border-top: 1px solid #edf3fd;
   display: flex;
 }
+.progress-table .table-row .title,
 .progress-table .table-row .date,
 .progress-table .table-row .hour,
 .progress-table .table-row .select {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#personal-appointments .date {
+  width: 33.3%;
+  padding-left: 30px;
+}
+#personal-appointments .hour {
+  width: 33.3%;
+}
+#personal-appointments .select {
+  width: 33.3%;
+}
+
+#group-sessions .title {
+  width: 32%;
+  padding-left: 30px;
+}
+#group-sessions .date {
+  width: 17%;
+}
+#group-sessions .hour {
+  width: 17%;
+}
+#group-sessions .select {
+  width: 17%;
 }
 
 .single-gallery-image {
