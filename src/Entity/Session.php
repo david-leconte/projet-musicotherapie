@@ -49,6 +49,12 @@ class Session
      */
     private $participants;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=State::class, inversedBy="appointments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $state;
+
     public function __construct()
     {
         $this->participants = new ArrayCollection();
@@ -115,6 +121,18 @@ class Session
     public function setLink(string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getState(): ?State
+    {
+        return $this->state;
+    }
+
+    public function setState(?State $state): self
+    {
+        $this->state = $state;
 
         return $this;
     }

@@ -24,13 +24,13 @@ class Appointment
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="appointments")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity=CauseType::class, inversedBy="appointments")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $causeType;
 
