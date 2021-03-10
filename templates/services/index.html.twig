@@ -60,7 +60,7 @@
                             <img src="{{ asset('img/icon/add-group.svg') }}" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="#group-sessions">Ateliers groupés en lgine</a></h5>
+                            <h5><a href="#group-sessions">Ateliers en ligne</a></h5>
                             <p>Redynamisez votre groupe avec des ateliers interactifs en ligne de découverte de la musicothérapie</p>
                             <a href="#group-sessions" class="plus-btn"><i class="ti-plus"></i></a>
                         </div>
@@ -76,21 +76,13 @@
                             <div class="hour">Heure</div>
                             <div class="select"></div>
                         </div>
+                        {% for appointment in appointments %}
                         <div class="table-row">
-                            <div class="date">26 mai 2021</div>
-                            <div class="hour">18:00</div>
-                            <div class="select"><a href="{{ path('confirmBooking') }}" class="genric-btn primary">Sélectionner</a></div>
+                            <div class="date">{{ appointment.date | date("d/m/Y") }}</div>
+                            <div class="hour">{{ appointment.date | date("H:i") }}</div>
+                            <div class="select"><a href="{{ path('confirmBooking', { type: "appointment", id: appointment.id }) }}" class="genric-btn primary">Sélectionner</a></div>
                         </div>
-                        <div class="table-row">
-                            <div class="date">31 mai 2021</div>
-                            <div class="hour">11:30</div>
-                            <div class="select"><a href="{{ path('confirmBooking') }}" class="genric-btn primary">Sélectionner</a></div>
-                        </div>
-                        <div class="table-row">
-                            <div class="date">05 juin 2021</div>
-                            <div class="hour">15:00</div>
-                            <div class="select"><a href="{{ path('confirmBooking') }}" class="genric-btn primary">Sélectionner</a></div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -104,24 +96,14 @@
                             <div class="hour">Heure</div>
                             <div class="select"></div>
                         </div>
+                        {% for session in sessions %}
                         <div class="table-row">
-                            <div class="title">Titre</div>
-                            <div class="date">26 mai 2021</div>
-                            <div class="hour">18:00</div>
-                            <div class="select"><a href="{{ path('confirmBooking') }}" class="genric-btn primary">Sélectionner</a></div>
+                            <div class="title">{{ session.title }}</div>
+                            <div class="date">{{ session.beginsAt | date("d/m/Y") }}</div>
+                            <div class="hour">{{ session.beginsAt | date("H:i") }}</div>
+                            <div class="select"><a href="{{ path('confirmBooking', { type: "group-session", id: session.id }) }}" class="genric-btn primary">Sélectionner</a></div>
                         </div>
-                        <div class="table-row">
-                            <div class="title">Titre</div>
-                            <div class="date">31 mai 2021</div>
-                            <div class="hour">11:30</div>
-                            <div class="select"><a href="{{ path('confirmBooking') }}" class="genric-btn primary">Sélectionner</a></div>
-                        </div>
-                        <div class="table-row">
-                            <div class="title">Titre</div>
-                            <div class="date">05 juin 2021</div>
-                            <div class="hour">15:00</div>
-                            <div class="select"><a href="{{ path('confirmBooking') }}" class="genric-btn primary">Sélectionner</a></div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

@@ -30,19 +30,21 @@ class AppointmentFixtures extends Fixture
     public function loadCausesAndStates(ObjectManager $manager) {
         for($i = 1; $i <=3; $i++) {
             $causeType = new CauseType();
-            $causeType->setNameType("Raison type n°. $i");
-            $causeType->setDescription("Description type n°. $i");
+            $causeType->setNameType("Raison type n° $i");
+            $causeType->setDescription("Description type n° $i");
             $manager->persist($causeType);
         }
 
         $availableState = new State();
         $availableState->setStateName("Disponible");
+        $availableState->setAvailable(true);
         $manager->persist($availableState);
 
         $this->availableState = $availableState;
 
         $unavailableState = new State();
         $unavailableState->setStateName("Indisponible");
+        $unavailableState->setAvailable(false);
         $manager->persist($unavailableState);
     }
 

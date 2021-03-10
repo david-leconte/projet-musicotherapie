@@ -29,6 +29,11 @@ class State
      */
     private $appointments;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $available;
+
     public function __construct()
     {
         $this->appointments = new ArrayCollection();
@@ -84,5 +89,17 @@ class State
     public function __toString()
     {
         return $this->stateName;
+    }
+
+    public function getAvailable(): ?bool
+    {
+        return $this->available;
+    }
+
+    public function setAvailable(bool $available): self
+    {
+        $this->available = $available;
+
+        return $this;
     }
 }
