@@ -11,7 +11,7 @@
 
             {{ form_start(form, {'attr': { 'class': 'col-12 form' }}) }}
                 {% if not form.vars.valid %}
-                    <ul>
+                    <ul class="error-message">
                         {# Loop through every form item #}
                         {% for child in form.children %}
                             {# Display the errors of the form item #}
@@ -42,7 +42,7 @@
                 <button type="submit" class="btn btn-lg btn-primary col-12">S'inscrire</button>
                 <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="ESoGo5qeRwVNNXEEEWRmYTs9ueIq8sBBQYoYMtSG0MM">
 
-                <a class="genric-btn link col-12" href="{{ path('app_login')}}" >Se connecter</a>
+                <a class="other-text genric-btn link col-12" href="{{ path('app_login')}}" >Se connecter</a>
             {{ form_end(form) }}
         </div>
     </div>
