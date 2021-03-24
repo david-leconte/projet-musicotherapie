@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\TestimonialRepository;
 use App\Repository\AppointmentRepository;
 use App\Repository\SessionRepository;
 use App\Form\ServiceType;
@@ -15,7 +16,7 @@ class ServicesController extends AbstractController
     /**
      * @Route("/services", name="services")
      */
-    public function index(AppointmentRepository $appointmentRepo, SessionRepository $sessionRepo): Response
+    public function index(TestimonialRepository $testimonialRepository, AppointmentRepository $appointmentRepo, SessionRepository $sessionRepo): Response
     {
         $availableAppointments = $appointmentRepo->findFirstAppointments($limit = 8, $available = true);
         $availableSessions = $sessionRepo->findFirstSessions($limit = 8, $available = true);
@@ -23,7 +24,8 @@ class ServicesController extends AbstractController
         return $this->render('services/index.html.twig', [
             'controller_name' => 'ServicesController',
             'appointments' => $availableAppointments,
-            'sessions' => $availableSessions
+            'sessions' => $availableSessions,
+            'testimonials' => $testimonialRepository->findAll(),
         ]);
     }
 

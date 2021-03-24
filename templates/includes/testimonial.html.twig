@@ -1,0 +1,34 @@
+<!--? Testimonial Area Start -->
+<section class="testimonial-area testimonial-padding fix">
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class=" col-lg-9">
+            <div class="about-caption">
+                <!-- Testimonial Start -->
+                <div class="h1-testimonial-active dot-style">
+                {% for testimonial in testimonials %}
+                    <!-- Single Testimonial -->
+                    <div class="single-testimonial position-relative">
+                        <div class="testimonial-caption">
+                            <img src="{{ asset('img/icon/quotes-sign.png') }}" alt="" class="quotes-sign">
+                            <p>{{ testimonial.message }}</p>
+                        </div>
+                        <!-- founder -->
+                        <div class="testimonial-founder d-flex align-items-center">
+                            <div class="founder-img">
+                                <i class="far fa-thumbs-up"></i>
+                            </div>
+                            <div class="founder-text">
+                                <span>{{ testimonial.authorName }}</span>
+                                <p>{{ testimonial.activity }}</p>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Testimonial End -->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!--? Testimonial Area End -->

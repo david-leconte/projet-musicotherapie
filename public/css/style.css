@@ -3025,6 +3025,7 @@ hr {
 }
 .about-area2 .about-img img {
   width: 100%;
+  border-radius: 9rem;
 }
 
 .about-low-area {
@@ -3159,6 +3160,9 @@ hr {
 
 .founder-img {
   margin-left: -15px;
+}
+.founder-img i {
+  font-size: 4rem;
 }
 
 .testimonial-area .testimonial-caption {
