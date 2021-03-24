@@ -51,6 +51,11 @@ class Appointment
      */
     private $type;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $participants;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -131,6 +136,18 @@ class Appointment
     public function __toString()
     {
         return $this->date->format('d-m-Y H:i:s').'-'.$this->getUser();
+    }
+
+    public function getParticipants(): ?int
+    {
+        return $this->participants;
+    }
+
+    public function setParticipants(?int $participants): self
+    {
+        $this->participants = $participants;
+
+        return $this;
     }
 
 }

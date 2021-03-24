@@ -19,6 +19,22 @@ class AppointmentRepository extends ServiceEntityRepository
         parent::__construct($registry, Appointment::class);
     }
 
+    /**
+    * @return Appointment[] Returns an array of Appointment objects
+    */
+    public function findFirstAppointments($limit, $available = true)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->innerJoin('a.state', 's', 'WITH', 's.available = :available')
+            ->setParameter('available', $available)
+            ->orderBy('a.date', 'ASC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Appointment[] Returns an array of Appointment objects
     //  */

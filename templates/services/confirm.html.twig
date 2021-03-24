@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ parent() }} | Confirmer réservation{% endblock %}
+{% block additionalMeta %}<meta name="robots" content="noindex" />{% endblock %}
 
 {% block body %}
 
@@ -29,51 +30,27 @@
     <div class="container">
         <div class="section-top-border">
             <div class="row">
-                <h1 class="col-12 text-heading">Confirmer réservation</h1>
-                <form action="#" class="col-12 form">
-                    <div class="mt-10">
-                        <input type="text" name="first_name" placeholder="Prénom"
-                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
-                        class="single-input form-control">
-                    </div>
-                    <div class="mt-10">
-                        <input type="text" name="last_name" placeholder="Nom"
-                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
-                        class="single-input form-control">
-                    </div>
-                    <div class="mt-10">
-                        <input type="email" name="EMAIL" placeholder="Adresse e-mail"
-                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
-                        class="single-input form-control">
-                    </div>
+                <h1 class="col-12 text-heading">{{ title }}</h1>
+                {{ form_start(form, { 'attr': { 'class': 'col-12 form' } }) }}
                     <div class="input-group-icon mt-10">
                         <div class="icon"><i class="fa fa-users" aria-hidden="true"></i></div>
-                        <div class="form-select form-control" id="default-select">
-                            <select>
-                                <option selected="true" disabled="disabled">Combien de personnes présentes ?</option>
-                                <option value=" 1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
+                        {{ form_widget(form.participants, { 'attr': { 'class': 'single-input form-control', 'placeholder': 'Combien de personnes' } }) }}
                     </div>
                     <div class="input-group-icon mt-10">
                         <div class="icon"><i class="fa fa-question" aria-hidden="true"></i></div>
                         <div class="form-select form-control" id="default-select">
-                            <select>
-                                <option selected="true" disabled="disabled">Pourquoi une séance de musicothérapie ?</option>
-                                <option value="1">Raison 1</option>
-                                <option value="2">Raison 2</option>
-                                <option value="3">Raison 3</option>
-                                <option value="4">Raison 4</option>
-                            </select>
+                            {{ form_widget(form.causeType)}}
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <div class="form-group">
+                            {{ form_widget(form.completeCause, { 'attr': { 'class': 'form-control w-100','placeholder': cause_message }}) }}
                         </div>
                     </div>
                     <div class="input-group-icon mt-10">
                         <button type="submit" class="form-control genric-btn primary e-large">Confirmer réservation</button>
                     </div>
-                </form>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>

@@ -19,6 +19,22 @@ class SessionRepository extends ServiceEntityRepository
         parent::__construct($registry, Session::class);
     }
 
+    /**
+    * @return Session[] Returns an array of Session objects
+    */
+    public function findFirstSessions($limit, $available = true)
+    {
+        return $this->createQueryBuilder('s')
+            ->select('s')
+            ->innerJoin('s.state', 'st', 'WITH', 'st.available = :available')
+            ->setParameter('available', $available)
+            ->orderBy('s.beginsAt', 'ASC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Session[] Returns an array of Session objects
     //  */
