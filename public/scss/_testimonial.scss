@@ -1,56 +1,58 @@
 .founder-img {
-	margin-left: -15px;
+    margin-left: -15px;
+    i {
+        font-size: 4rem;
+    }
 }
 
-.testimonial-area{
-    .testimonial-caption{
+.testimonial-area {
+    .testimonial-caption {
         position: relative;
-         img {
+        img {
             position: absolute;
             top: -69px;
             left: -80px;
             z-index: -1;
-            @media #{$xs}{
+            @media #{$xs} {
                 display: none;
             }
-         }
-        p{
+        }
+        p {
             font-size: 28px;
             font-weight: 300;
             color: #234821;
             line-height: 1.6;
             margin-bottom: 46px;
-
-            @media #{$lg}{
+            @media #{$lg} {
                 margin-bottom: 40px;
             }
-            @media #{$sm}{
+            @media #{$sm} {
                 width: 99%;
                 font-size: 20px;
             }
-            @media #{$xs}{
+            @media #{$xs} {
                 margin-bottom: 33px;
                 font-size: 17px;
             }
         }
     }
-    .single-testimonial{
+    .single-testimonial {
         padding: 100px 10px 0 100px;
-        @media #{$xs}{
+        @media #{$xs} {
             padding: 11px 16px 0 18px;
         }
-        @media #{$sm}{
+        @media #{$sm} {
             padding: 89px 10px 0 85px;
         }
     }
-    .rattiong-caption{
-        span{
+    .rattiong-caption {
+        span {
             color: #06080a;
             font-size: 24px;
             font-weight: 500;
             text-transform: uppercase;
-           font-family:$font_1;
-            span{
+            font-family: $font_1;
+            span {
                 color: #767676;
                 font-size: 16px;
                 text-transform: capitalize;
@@ -60,8 +62,7 @@
     }
     .founder-text {
         margin-left: 24px;
-        span{
-
+        span {
             color: #1D2547;
             font-weight: 500;
             line-height: 1.5;
@@ -70,18 +71,20 @@
         p {
             color: #646D77;
             font-size: 14px;
-            @media #{$xs}{
+            @media #{$xs} {
                 font-size: 12px;
             }
-            @media #{$sm}{
+            @media #{$sm} {
                 font-size: 12px;
             }
         }
     }
 }
 
+
 /* Homepage1 Testimonial */
-.h1-testimonial-active{
+
+.h1-testimonial-active {
     button.slick-arrow {
         position: absolute;
         border: 0;
@@ -96,32 +99,25 @@
         bottom: 0px;
         z-index: 1;
         transform: rotate(-45deg) !important;
-        &:hover{
-            color:$theme-color;
+        &:hover {
+            color: $theme-color;
         }
-    } 
-   button.slick-next {
+    }
+    button.slick-next {
         // left: 55px !important;
         right: -10px;
         transform: rotate(45deg) !important;
         // color: $theme-color;
-       
     }
     // slick-dot style
-    &.dot-style{
+    &.dot-style {
         .slick-dots {
             bottom: 4%;
             right: 41px;
             position: absolute;
-            @media #{$lg}{
-               
-            }
-            @media #{$sm}{
-               
-            }
-            @media #{$xs}{
-               
-            }
+            @media #{$lg} {}
+            @media #{$sm} {}
+            @media #{$xs} {}
         }
         .slick-dots li {
             display: inline-block;
@@ -130,13 +126,13 @@
             // padding: 0;
             margin-right: 7px;
             cursor: pointer;
-            background:none;
+            background: none;
             color: #000;
             border: 0;
             font-size: 16px;
-            padding:0;
+            padding: 0;
         }
-        .slick-active button{
+        .slick-active button {
             // position: relative;
             // text-decoration: underline;
             // text-decoration-style: solid;
@@ -144,10 +140,9 @@
             color: $theme-color;
         }
     }
-// End dot style
+    // End dot style
 }
 
 .slick-initialized .slick-slide {
     outline: 0;
 }
-
