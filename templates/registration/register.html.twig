@@ -31,10 +31,10 @@
                     {{ form_widget(form.email, {'attr': { 'placeholder': 'Votre adresse e-mail', 'required': 'true', 'class': 'form-control' }}) }}
                 </div>
                 <div class="form-group">
-                    {{ form_widget(form.plainPassword.first, {'attr': { 'placeholder': 'Votre mot de passe', 'required': 'true', 'class': 'form-control' }}) }}
+                    {{ form_widget(form.password, {'attr': { 'placeholder': 'Votre mot de passe', 'required': 'true', 'class': 'form-control' }}) }}
                 </div>
                 <div class="form-group">
-                    {{ form_widget(form.plainPassword.second, {'attr': { 'placeholder': 'Confirmez mot de passe', 'required': 'true', 'class': 'form-control' }}) }}
+                    {{ form_widget(form.confirm_password, {'attr': { 'placeholder': 'Confirmez mot de passe', 'required': 'true', 'class': 'form-control' }}) }}
                 </div>
                 <div class="form-group">
                     {{ form_widget(form.agreeTerms, {'attr': { 'required': 'true' }}) }} {{ form_label(form.agreeTerms) }}

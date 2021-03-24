@@ -24,6 +24,7 @@ class UserFixtures extends Fixture
         $user->setEmail("jeanvaljean@email.com");
         $hash = $this->encoder->encodePassword($user, "VictorHugo");
         $user->setPassword($hash);
+        $user->setVerified(true);
 
         $manager->persist($user);
         $manager->flush();

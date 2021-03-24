@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -25,6 +26,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(message="Ceci n'est pas un email valide")
      */
     private $email;
 
@@ -36,16 +38,25 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(min=6, max=20, minMessage="Votre mot de passe doit être de min 6 caractères")
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Assert\EqualTo(propertyPath="password", message="Les deux mots de passe sont différents")
+     */
+    public $confirm_password;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Veuillez entrer votre nom de famille")
      */
     private $lastName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Veuillez entrer votre prénom")
      */
     private $firstName;
 
@@ -58,6 +69,11 @@ class User implements UserInterface
      * @ORM\ManyToMany(targetEntity=Session::class, mappedBy="participants")
      */
     private $sessions;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $verified;
 
     public function __construct()
     {
@@ -230,5 +246,17 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->email;
+    }
+
+    public function getVerified(): ?bool
+    {
+        return $this->verified;
+    }
+
+    public function setVerified(bool $verified): self
+    {
+        $this->verified = $verified;
+
+        return $this;
     }
 }
