@@ -5,7 +5,6 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Appointment;
-use App\Entity\AppointmentType;
 use App\Entity\CauseType;
 use App\Entity\Session;
 use App\Entity\State;
@@ -49,19 +48,9 @@ class AppointmentFixtures extends Fixture
     }
 
     public function loadAppointments(ObjectManager $manager) {
-        $individualApp = new AppointmentType();
-        $individualApp->setTypeName("Rendez-vous individuel");
-        $manager->persist($individualApp);
-
-        $groupApp = new AppointmentType();
-        $groupApp->setTypeName("Atelier groupé");
-        $manager->persist($groupApp);
 
         for($i = 1; $i <=12; $i++) {
             $fakeApp = new Appointment();
-            
-            if($i % 2 == 0) $fakeApp->setType($individualApp);
-            else $fakeApp->setType($groupApp);
 
             $fakeApp->setState($this->availableState);
             $fakeApp->setCompleteCause("");

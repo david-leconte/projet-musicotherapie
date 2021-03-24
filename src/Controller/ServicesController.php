@@ -13,6 +13,9 @@ use App\Repository\StateRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\AppointmentType;
 use App\Form\SessionType;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Mime\Address;
 
 class ServicesController extends AbstractController
 {
@@ -21,15 +24,17 @@ class ServicesController extends AbstractController
     private $stateRepo;
 
     private $manager;
+    private $mailer;
 
     const APP_TYPES = ["appointment" => "appointment", "session" => "group-session"];
 
-    public function __construct(AppointmentRepository $appointmentRepo, SessionRepository $sessionRepo, StateRepository $stateRepo, EntityManagerInterface $manager) {
+    public function __construct(AppointmentRepository $appointmentRepo, SessionRepository $sessionRepo, StateRepository $stateRepo, MailerInterface $mailer, EntityManagerInterface $manager) {
         $this->appointmentRepo = $appointmentRepo;
         $this->sessionRepo = $sessionRepo;
         $this->stateRepo = $stateRepo;
 
         $this->manager = $manager;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -53,8 +58,21 @@ class ServicesController extends AbstractController
      */
     public function confirm(string $type, int $id, Request $request): Response
     {
-        if($type == self::APP_TYPES["appointment"]) $form = $this->createForm(AppointmentType::class);
-        else if($type == self::APP_TYPES["session"]) $form = $this->createForm(SessionType::class);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+
+        if($type == self::APP_TYPES["appointment"]) {
+            $form = $this->createForm(AppointmentType::class);
+            $appointment = $this->appointmentRepo->findOneById($id);
+
+            if(!$appointment->getState()->getAvailable()) return $this->redirectToRoute("home");
+        }
+
+        else if($type == self::APP_TYPES["session"]) {
+            $form = $this->createForm(SessionType::class);
+            $session = $this->sessionRepo->findOneById($id);
+
+            if(!$session->getState()->getAvailable()) return $this->redirectToRoute("home");
+        }
 
         $form->handleRequest($request);
 
@@ -63,14 +81,12 @@ class ServicesController extends AbstractController
         }
 
         if($type == self::APP_TYPES["appointment"]) {
-            $appointment = $this->appointmentRepo->findOneById($id);
             $title = "Confirmer réservation d'un rendez-vous le " . $appointment->getDate()->format('d/m/Y') . " à " . $appointment->getDate()->format("H:i");
         }
 
         else {
-            $appointment = $this->sessionRepo->findOneById($id);
-            $title = "Confirmer réservation sur la session en ligne " . $appointment->getTitle() . " le " 
-                . $appointment->getBeginsAt()->format('d/m/Y') . " à " . $appointment->getBeginsAt()->format("H:i");
+            $title = "Confirmer réservation sur la session en ligne " . $session->getTitle() . " le " 
+                . $session->getBeginsAt()->format('d/m/Y') . " à " . $session->getBeginsAt()->format("H:i");
         }
 
         return $this->render('services/confirm.html.twig', [
@@ -95,6 +111,19 @@ class ServicesController extends AbstractController
             $this->manager->persist($appointment);
             $this->manager->flush();
 
+            $email = (new TemplatedEmail())
+                ->from(new Address("betview.conseil@gmail.com", "Betview Musicothérapie (NE PAS RÉPONDRE)"))
+                ->to($this->getUser()->getEmail())
+                ->subject("Réservation confirmée de pour un rendez-vous le " . $appointment->getDate()->format('d/m/Y') . " à " . $appointment->getDate()->format("H:i"))
+                ->htmlTemplate('services/appointment_email.html.twig')
+                ->context([
+                    "user" => $this->getUser(),
+                    "appointment"=> $appointment
+                ])
+            ;
+
+            $this->mailer->send($email);
+
             $this->addFlash("success", "Votre rendez-vous a bien été pris, vous allez recevoir une confirmation par e-mail !");
 
             return true;
@@ -107,6 +136,19 @@ class ServicesController extends AbstractController
 
             $this->manager->persist($session);
             $this->manager->flush();
+
+            $email = (new TemplatedEmail())
+                ->from(new Address("betview.conseil@gmail.com", "Betview Musicothérapie (NE PAS RÉPONDRE)"))
+                ->to($this->getUser()->getEmail())
+                ->subject("Confirmation pour l'atelier en ligne le " . $session->getBeginsAt()->format('d/m/Y') . " à " . $session->getBeginsAt()->format("H:i"))
+                ->htmlTemplate('services/session_email.html.twig')
+                ->context([
+                    "user" => $this->getUser(),
+                    "session"=> $session
+                ])
+            ;
+
+            $this->mailer->send($email);
 
             $this->addFlash("success", "Votre session en ligne a bien été payée et réservée, vous allez recevoir une confirmation par e-mail !");
 

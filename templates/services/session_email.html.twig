@@ -1,0 +1,13 @@
+<h1>Votre réservation sur l'atelier en ligne {{ session.title }} par Beya Musicothérapie a bien été enregistrée</h1>
+
+<p>
+    Bonjour Monsieur / Madame {{ user.firstName }} {{ user.lastName }}, <br><br>
+    Votre réservation pour l'atelier en ligne <br>
+    {{ session.title }} le {{ session.beginsAt|date('d/m/Y') }} de {{ session.beginsAt|date('H:i') }} à {{ session.endsAt|date('H:i') }} 
+    a bien été enregistrée.<br>
+    Ce mail vous servira de confirmation, ne le perdez pas !
+</p>
+<p>
+    J'ai plus que hâte de vous faire découvrir la musicothérapie !<br>
+    Très cordialement, Beya Barkous, musicothérapeute diplômée de l'université Paris Descartes et présidente de Musicothérapie Sans Frontières.
+</p>

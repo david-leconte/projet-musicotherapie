@@ -1,0 +1,11 @@
+<h1>Votre réservation pour un rendez-vous chez Beya Musicothérapie a bien été enregistrée</h1>
+
+<p>
+    Bonjour Monsieur / Madame {{ user.firstName }} {{ user.lastName }}, <br><br>
+    Votre réservation pour un rendez-vous le {{ appointment.date|date('d/m/Y') }} à {{ appointment.date|date('H:i') }} a bien été enregistrée.<br>
+    Ce mail vous servira de confirmation, ne le perdez pas !
+</p>
+<p>
+    J'ai plus que hâte de vous faire découvrir la musicothérapie !<br>
+    Très cordialement, Beya Barkous, musicothérapeute diplômée de l'université Paris Descartes et présidente de Musicothérapie Sans Frontières.
+</p>

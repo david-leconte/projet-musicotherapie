@@ -4,7 +4,7 @@
 
 {% block body %}
 
-{% if not app.user %}
+{% if not app.user or not app.user.verified %}
 <section>
     <div class="slider-area slider-area2">
         <div class="slider-active dot-style">
@@ -14,8 +14,10 @@
                         <div class="col-xl-7 col-lg-8 col-md-10 ">
                             <div class="hero-wrapper">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">Veuillez vous connecter</h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">Réserver un horaire de rendez-vous nécessite d'être inscrit et connecté sur le site !</p>
+                                    <h1 data-animation="fadeInUp" data-delay=".3s">Veuillez vous connecter et vérifier votre compte</h1>
+                                    <p data-animation="fadeInUp" data-delay=".6s">
+                                        Réserver nécessite d'être connecté et d'avoir vérifié son compte via un e-mail envoyé automatiquement après inscription.
+                                    </p>
                                 </div>
                             </div>
                         </div>
