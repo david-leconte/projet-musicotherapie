@@ -19,6 +19,16 @@ class StateRepository extends ServiceEntityRepository
         parent::__construct($registry, State::class);
     }
 
+    public function findOneByAvailability($availability): ?State
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.available = :availability')
+            ->setParameter('availability', $availability)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     // /**
     //  * @return State[] Returns an array of State objects
     //  */

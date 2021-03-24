@@ -46,12 +46,6 @@ class Appointment
     private $state;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AppointmentType::class, inversedBy="appointments")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $type;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $participants;

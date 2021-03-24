@@ -2977,6 +2977,12 @@ hr {
   }
 }
 
+.flash-notif {
+  font-style: italic;
+  font-size: 2.25rem;
+  margin-top: -5rem;
+}
+
 .about-area2 .about-caption {
   padding-left: 50px;
 }

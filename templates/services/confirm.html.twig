@@ -32,6 +32,7 @@
             <div class="row">
                 <h1 class="col-12 text-heading">{{ title }}</h1>
                 {{ form_start(form, { 'attr': { 'class': 'col-12 form' } }) }}
+                    {% if type == "appointment" %}
                     <div class="input-group-icon mt-10">
                         <div class="icon"><i class="fa fa-users" aria-hidden="true"></i></div>
                         {{ form_widget(form.participants, { 'attr': { 'class': 'single-input form-control', 'placeholder': 'Combien de personnes' } }) }}
@@ -47,8 +48,17 @@
                             {{ form_widget(form.completeCause, { 'attr': { 'class': 'form-control w-100','placeholder': cause_message }}) }}
                         </div>
                     </div>
+                    {% elseif type == "group-session" %}
+                    {% endif %}
+
                     <div class="input-group-icon mt-10">
-                        <button type="submit" class="form-control genric-btn primary e-large">Confirmer réservation</button>
+                        <button type="submit" class="form-control genric-btn primary e-large">
+                            {% if type == "appointment" %}
+                            Confirmer rendez-vous
+                            {% elseif type == "group-session" %}
+                            Confirmer et payer pour cette session en ligne
+                            {% endif %}
+                        </button>
                     </div>
                 {{ form_end(form) }}
             </div>

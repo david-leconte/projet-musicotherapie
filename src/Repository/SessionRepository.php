@@ -35,6 +35,16 @@ class SessionRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findOneById($value): ?Session
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     // /**
     //  * @return Session[] Returns an array of Session objects
     //  */

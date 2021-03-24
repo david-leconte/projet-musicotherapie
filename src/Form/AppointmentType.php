@@ -11,26 +11,23 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\CauseType;
 
-class ServiceType extends AbstractType
+class AppointmentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('participants', IntegerType::class)
-            ->add('causeType', EntityType::class, [
-                'class' => CauseType::class,
-                'choice_label' => 'nameType',
-                'multiple' => false,
-                'expanded' => false
-            ])
-            ->add('completeCause', TextareaType::class)
-        ;
+            $builder
+                ->add('participants', IntegerType::class)
+                ->add('causeType', EntityType::class, [
+                    'class' => CauseType::class,
+                    'choice_label' => 'nameType',
+                    'multiple' => false,
+                    'expanded' => false
+                ])
+                ->add('completeCause', TextareaType::class)
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            // Configure your form options here
-        ]);
     }
 }
