@@ -3,13 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -18,16 +17,23 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle("index", "Utilisateurs enregistrés")
+        ;
+    }
 
     public function configureFields(string $pageName): iterable
     {
-            return [
-                IdField::new('id')->onlyOnIndex(),
-                EmailField::new('email'),
-                TextField::new('firstName'),
-                TextField::new('lastName'),
-                ChoiceField::new('roles')->setChoices(['ADMIN' => 'ROLE_ADMIN', 'USER' => 'ROLE_USER'])->allowMultipleChoices()
-            ];
+        return [
+            Field::new('id')->onlyWhenUpdating(),
+            EmailField::new('email'),
+            Field::new('firstName', 'Prénom'),
+            Field::new('lastName', 'Nom'),
+            ArrayField::new('appointments.date', 'Rendez-vous pris (date / heure)'),
+            BooleanField::new('verified', 'Compte vérifié'),
+            ArrayField::new('roles', 'Accès sécurité'),
+        ];
     }
-
 }
