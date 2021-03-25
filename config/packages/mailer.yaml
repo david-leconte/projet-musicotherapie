@@ -1,4 +1,7 @@
 framework:
     mailer:
         dsn: 'gmail+smtp://%env(MAIL_USER)%:%env(MAIL_PASSWORD)%@default'
-        
+        envelope:
+            sender: '%env(MAIL_USER)%'
+        headers:
+            from: 'Beya Barkous (NE PAS RÉPONDRE) <%env(MAIL_USER)%>'

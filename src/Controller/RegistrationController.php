@@ -52,8 +52,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             $templatedEmail = new TemplatedEmail();
-            $templatedEmail->from(new Address('betview.conseil@gmail.com', 'Beya Musicothérapie (NE PAS RÉPONDRE)'))
-                ->to($user->getEmail())
+            $templatedEmail->to($user->getEmail())
                 ->subject('Veuillez confirmer votre compte Beya Musicothérapie')
                 ->htmlTemplate('registration/confirmation_email.html.twig');
 

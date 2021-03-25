@@ -112,7 +112,6 @@ class ServicesController extends AbstractController
             $this->manager->flush();
 
             $email = (new TemplatedEmail())
-                ->from(new Address("betview.conseil@gmail.com", "Betview Musicothérapie (NE PAS RÉPONDRE)"))
                 ->to($this->getUser()->getEmail())
                 ->subject("Réservation confirmée de pour un rendez-vous le " . $appointment->getDate()->format('d/m/Y') . " à " . $appointment->getDate()->format("H:i"))
                 ->htmlTemplate('services/appointment_email.html.twig')
@@ -138,7 +137,6 @@ class ServicesController extends AbstractController
             $this->manager->flush();
 
             $email = (new TemplatedEmail())
-                ->from(new Address("betview.conseil@gmail.com", "Betview Musicothérapie (NE PAS RÉPONDRE)"))
                 ->to($this->getUser()->getEmail())
                 ->subject("Confirmation pour l'atelier en ligne le " . $session->getBeginsAt()->format('d/m/Y') . " à " . $session->getBeginsAt()->format("H:i"))
                 ->htmlTemplate('services/session_email.html.twig')
