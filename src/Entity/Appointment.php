@@ -115,18 +115,6 @@ class Appointment
         return $this;
     }
 
-    public function getType(): ?AppointmentType
-    {
-        return $this->type;
-    }
-
-    public function setType(?AppointmentType $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function __toString()
     {
         return $this->date->format('d-m-Y H:i:s').'-'.$this->getUser();
