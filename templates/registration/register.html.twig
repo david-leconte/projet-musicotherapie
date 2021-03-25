@@ -21,6 +21,11 @@
                         {%endfor%}
                     </ul>
                 {%endif%}
+                <ul class="error-message">
+                    {% for message in app.flashes("verify_email_error") %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
                 <div class="form-group">
                     {{ form_widget(form.firstName, {'attr': { 'placeholder': 'Votre prénom', 'required': 'true', 'class': 'form-control' }}) }}
                 </div>

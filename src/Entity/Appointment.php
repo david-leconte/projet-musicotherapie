@@ -35,7 +35,7 @@ class Appointment
     private $causeType;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     private $completeCause;
 

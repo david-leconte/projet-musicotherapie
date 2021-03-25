@@ -1,0 +1,13 @@
+easy_admin:
+    entities:
+        Appointment:
+            class: App\Entity\Appointment
+            form:
+                fields:
+                    - { property: 'date', type: 'datetime', type_options: { widget: 'choice' } }
+        Session:
+            class: App\Entity\Session
+            form:
+                fields:
+                    - { property: 'beginsAt', type: 'datetime', type_options: { widget: 'choice' } }
+                    - { property: 'endsAt', type: 'datetime', type_options: { widget: 'choice' } }

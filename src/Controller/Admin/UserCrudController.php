@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -31,7 +32,8 @@ class UserCrudController extends AbstractCrudController
             EmailField::new('email'),
             Field::new('firstName', 'Prénom'),
             Field::new('lastName', 'Nom'),
-            ArrayField::new('appointments.date', 'Rendez-vous pris (date / heure)'),
+            AssociationField::new('appointments', 'Rendez-vous pris'),
+            AssociationField::new('sessions', 'Sessions participant'),
             BooleanField::new('verified', 'Compte vérifié'),
             ArrayField::new('roles', 'Accès sécurité'),
         ];
