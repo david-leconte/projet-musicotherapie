@@ -84,9 +84,9 @@ class RegistrationController extends AbstractController
         try {
             $this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
         } catch (VerifyEmailExceptionInterface $exception) {
-            $this->addFlash('verify_email_error', $exception->getReason());
+            $this->addFlash('verify_email_error', "Erreur lors de la vérification de votre adresse, l'email a peut-être expiré");
 
-            return $this->redirectToRoute('security_registration');
+            return $this->redirectToRoute('app_register');
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
